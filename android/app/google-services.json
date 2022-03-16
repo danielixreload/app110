@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "659263502450",
+    "project_id": "bol110pol",
+    "storage_bucket": "bol110pol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659263502450:android:7af44a3d7d36ff826f2aeb",
+        "android_client_info": {
+          "package_name": "com.policiaboliviana.bol110pol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659263502450-v82fi1728jehopld6aavljcip62i01c7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIBETYCJT7JfWNuM7WUri-_E8il4wcZGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659263502450-v82fi1728jehopld6aavljcip62i01c7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
