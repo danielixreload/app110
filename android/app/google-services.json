@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "659263502450-jaobmsg5jf6bc00omng7j2qboplqrlht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.policiaboliviana.bol110pol",
+            "certificate_hash": "31b8f3947c97f8bc186cff4e063fcd24fa843de6"
+          }
+        },
+        {
           "client_id": "659263502450-v82fi1728jehopld6aavljcip62i01c7.apps.googleusercontent.com",
           "client_type": 3
         }

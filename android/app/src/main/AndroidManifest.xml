@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.policiaboliviana.bol110pol">
+    <uses-permission android:name= "android.permission.INTERNET"/>
    <application
         android:label="bol110pol"
         android:name="${applicationName}"
