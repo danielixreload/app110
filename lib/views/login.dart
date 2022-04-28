@@ -1,7 +1,8 @@
-import 'package:bol110pol/views/home.dart';
+import 'package:bol110pol/views/terminos_y_condiciones.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 
 
 class LoginScreen extends StatefulWidget {
@@ -20,7 +21,9 @@ class _LoginScreenState extends State<LoginScreen> {
   String verificationID = "";
 
   Widget build(BuildContext context) {
-    return Scaffold(
+   
+    return MaterialApp(
+      home:  Scaffold(
       appBar: AppBar(
         title: const Text(
           "BOL 110",
@@ -30,69 +33,85 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         backgroundColor: Colors.green[900],
       ),
-
-      body:Container(
-        decoration: const BoxDecoration(
-          image:  DecorationImage(
-            image: AssetImage("assets/110.png"),
-            ), 
-          ),
-        margin: const EdgeInsets.all(160),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            TextField(
-              controller: phoneController,
-              decoration: const InputDecoration(
-                hintText: 'Ingresar numero de celular',
-              ),
-              maxLength: 10,
-              keyboardType: TextInputType.phone,
-            ),
+      
+      body: Center(
+        
+        child: SingleChildScrollView(
+          
+         
+          child: Container(
+            
            
-
-            Visibility(
-              child: TextField(
-                controller: otpController,
-                decoration: const InputDecoration(
-                  hintText: 'Codigo Recibido',
-                  prefix: Padding(
-                    padding: EdgeInsets.all(4),
-                    child: Text(''),
+            margin: const EdgeInsets.all(160),
+            
+            child: Column(
+              
+              
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 250.0,
+                  width: 350.0,
+                  child: Image.asset("assets/110.png"),
+                ),
+                TextField(
+                  controller: phoneController,
+                  decoration: const InputDecoration(
+                    hintText: 'Ingresar numero de celular',
+                  ),
+                  maxLength: 10,
+                  keyboardType: TextInputType.phone,
+                ),
+                
+                Visibility(
+                  child: TextField(
+                    controller: otpController,
+                    decoration: const InputDecoration(
+                      hintText: 'Codigo Recibido',
+                      prefix: Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Text(''),
+                      ),
+                    ),
+                    maxLength: 6,
+                    keyboardType: TextInputType.number,
+                  ),
+                  visible: otpVisibility,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                MaterialButton(
+                  color: const Color.fromARGB(255, 9, 53, 12),
+                  onPressed: () {
+                    if (otpVisibility) {
+                      verificarCodigo();
+                    } else {
+                      accederConTelefono();
+                    }
+                  },
+                  child: Text(
+                    otpVisibility ? "Verificar Codigo" : "Autenticar",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      
+                    ),
                   ),
                 ),
-                maxLength: 6,
-                keyboardType: TextInputType.number,
-              ),
-              visible: otpVisibility,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            MaterialButton(
-              color: const Color.fromARGB(255, 9, 53, 12),
-              onPressed: () {
-                if (otpVisibility) {
-                  verificarCodigo();
-                } else {
-                  accederConTelefono();
-                }
-              },
-              child: Text(
-                otpVisibility ? "Verificar Codigo" : "Autenticar",
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              ),
+                
+                
+                
+              ],
+              
+              
             ),
             
-          ],
-          
+          ),
         ),
-        
       ),
       
+    ),
     );
   }
   void accederConTelefono() async {
@@ -137,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => Home(),
+            builder: (context) => terminos_y_condiciones(),
           ),
         );
       },

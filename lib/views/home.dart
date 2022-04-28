@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
 
   int _paginaHome = 0;
   List<Widget> _paginas = [
-    denuncias(),
+    ModalNuevaDenuncia(),
     panico(),
     
     

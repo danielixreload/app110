@@ -31,5 +31,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+<meta-data android:name="AIzaSyChN2t9r8vMVLhWEtgvJznK0q9yhQGsN2s" android:value="AIzaSyChN2t9r8vMVLhWEtgvJznK0q9yhQGsN2s"/>
     </application>
 </manifest>
