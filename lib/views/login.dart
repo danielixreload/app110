@@ -1,7 +1,9 @@
+import 'package:bol110pol/views/google_login_controller.dart';
 import 'package:bol110pol/views/terminos_y_condiciones.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -113,6 +115,49 @@ class _LoginScreenState extends State<LoginScreen> {
       
     ),
     );
+    loginUI() {
+      return Consumer<GoogleSignInController>(
+        builder: (context, model, child){
+          if(model.googleAccount !=null){
+            return Center(child: loggedInUI(model),);
+          }
+          else{
+            return loginControls(context);
+          }
+        },
+      );
+    }
+    loggedInUI(GooogleSignInController model){
+      rerturn Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            backgroundImage: Image.network(model.googleAccount!.photoUrl ?? '').image,
+            radius: 50,
+          ),
+          Text(model.googleAccount!.displayName ?? ''),
+          Text(model.googleAccount!.email),
+          
+        ],
+      );
+    }
+    loginControls(BuildContext context){
+      return Center(
+        child: Column(
+          children: [
+            GestureDetector(
+                Image.asset("assets/google.png",  width: 250,),
+                onTap: (){
+                  Provider.of<GoogleSignInController>(context, listen: false).login();
+                },
+            )
+            
+            Image.asset("assets/fb.png", width: 250,)
+          ],),
+      );
+
+    }
   }
   void accederConTelefono() async {
     auth.verifyPhoneNumber(
